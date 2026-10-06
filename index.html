@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>论文写作工具导航 · 一站式学术写作工具箱</title>
+<meta name="description" content="汇集文献管理、写作润色、AI辅助、查重降重、排版绘图、数据分析等论文写作必备工具，助你高效完成学术论文。">
+<style>
+  :root {
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --ink: #1a2033;
+    --ink-soft: #5b6478;
+    --ink-faint: #8a92a6;
+    --brand: #3b5bdb;
+    --brand-2: #7048e8;
+    --accent: #f59f00;
+    --accent-soft: #fff3bf;
+    --line: #e7e9f2;
+    --ok: #2f9e44;
+    --warn: #e8590c;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow-sm: 0 1px 2px rgba(20, 30, 60, .06), 0 4px 16px rgba(20, 30, 60, .06);
+    --shadow-md: 0 2px 6px rgba(20, 30, 60, .07), 0 12px 32px rgba(20, 30, 60, .10);
+    --shadow-lg: 0 8px 24px rgba(20, 30, 60, .12), 0 24px 64px rgba(20, 30, 60, .14);
+    --grad: linear-gradient(135deg, #3b5bdb 0%, #7048e8 55%, #9c36b5 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.82);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -.2px; }
+  .logo .mark {
+    width: 30px; height: 30px; border-radius: 9px; background: var(--grad);
+    display: grid; place-items: center; color: #fff; font-size: 16px; box-shadow: var(--shadow-sm);
+  }
+  .nav-links { display: flex; gap: 6px; }
+  .nav-links a {
+    padding: 7px 14px; border-radius: 999px; font-size: 14px; color: var(--ink-soft);
+    transition: all .18s ease;
+  }
+  .nav-links a:hover { color: var(--brand); background: rgba(59,91,219,.08); }
+  .nav-cta {
+    padding: 9px 18px; border-radius: 999px; background: var(--grad); color: #fff !important;
+    font-weight: 600; font-size: 14px; box-shadow: var(--shadow-sm);
+  }
+  .nav-cta:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    position: relative; overflow: hidden;
+    padding: 84px 0 72px;
+    background: radial-gradient(1200px 600px at 85% -10%, #e5dbff 0%, transparent 60%),
+                radial-gradient(900px 500px at -10% 20%, #dbe4ff 0%, transparent 55%),
+                linear-gradient(180deg, #fdfdff 0%, #f6f7fb 100%);
+  }
+  .hero-inner { max-width: 820px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line);
+    font-size: 13px; font-weight: 600; color: var(--brand); box-shadow: var(--shadow-sm);
+  }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(47,158,68,.15); }
+  h1 {
+    font-size: 46px; line-height: 1.18; letter-spacing: -1.2px; margin: 20px 0 18px; font-weight: 800;
+  }
+  h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero-sub { font-size: 17px; color: var(--ink-soft); max-width: 620px; margin-bottom: 28px; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 12px;
+    font-size: 15px; font-weight: 600; cursor: pointer; transition: all .18s ease; border: none;
+  }
+  .btn-primary { background: var(--grad); color: #fff; box-shadow: var(--shadow-md); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+  .btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
+
+  /* ---------- Stats ---------- */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
+  .stat {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 20px 22px; box-shadow: var(--shadow-sm);
+  }
+  .stat .num { font-size: 30px; font-weight: 800; letter-spacing: -1px; }
+  .stat .num em { font-style: normal; color: var(--brand); }
+  .stat .lbl { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+
+  /* ---------- Section common ---------- */
+  section { padding: 72px 0 8px; }
+  .sec-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+  .sec-head h2 { font-size: 32px; letter-spacing: -.6px; margin-bottom: 12px; }
+  .sec-head p { color: var(--ink-soft); font-size: 15px; }
+
+  /* ---------- Search / filter ---------- */
+  .controls { position: sticky; top: 63px; z-index: 50; padding: 14px 0; background: linear-gradient(180deg, var(--bg) 70%, transparent); }
+  .search-box {
+    display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--line);
+    border-radius: 14px; padding: 4px 8px 4px 16px; box-shadow: var(--shadow-sm); max-width: 560px; margin: 0 auto 14px;
+  }
+  .search-box:focus-within { border-color: var(--brand); box-shadow: 0 0 0 4px rgba(59,91,219,.12); }
+  .search-box input { flex: 1; border: none; outline: none; font-size: 15px; padding: 10px 0; background: transparent; color: var(--ink); }
+  .search-box .icon { color: var(--ink-faint); }
+  .search-box .clear { display: none; cursor: pointer; color: var(--ink-faint); padding: 6px; border-radius: 8px; }
+  .search-box .clear:hover { background: #f0f1f6; color: var(--ink); }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .tab {
+    padding: 8px 16px; border-radius: 999px; font-size: 14px; cursor: pointer; white-space: nowrap;
+    background: #fff; border: 1px solid var(--line); color: var(--ink-soft); transition: all .16s ease;
+  }
+  .tab:hover { border-color: var(--brand); color: var(--brand); }
+  .tab.active { background: var(--grad); color: #fff; border-color: transparent; box-shadow: var(--shadow-sm); }
+  .result-count { text-align: center; font-size: 13px; color: var(--ink-faint); margin: 10px 0 4px; }
+
+  /* ---------- Cards ---------- */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    position: relative; overflow: hidden;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #d8ddf5; }
+  .card::after {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+  }
+  .card:hover::after { transform: scaleX(1); }
+  .card-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+  .card-ico {
+    width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+    display: grid; place-items: center; font-size: 22px;
+    background: linear-gradient(135deg, #eef1ff, #f3eefe); border: 1px solid #e6e4f7;
+  }
+  .card-title { font-size: 17px; font-weight: 700; line-height: 1.3; }
+  .card-en { font-size: 12.5px; color: var(--ink-faint); font-weight: 500; margin-top: 2px; }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+  .badge { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
+  .badge.free { background: #e6f7eb; color: var(--ok); }
+  .badge.paid { background: #fff0e6; color: var(--warn); }
+  .badge.part { background: #fff9e6; color: #b98a00; }
+  .card-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 14px; flex: 1; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+  .tag { font-size: 12px; padding: 4px 10px; border-radius: 7px; background: #f2f3f8; color: var(--ink-soft); }
+  .card-foot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 14px; }
+  .stars { color: #f59f00; font-size: 13px; letter-spacing: 1px; }
+  .stars span { color: var(--ink-faint); letter-spacing: 0; margin-left: 6px; font-size: 12px; }
+  .card-link { font-size: 13px; font-weight: 600; color: var(--brand); display: inline-flex; align-items: center; gap: 4px; }
+  .card-link:hover { text-decoration: underline; }
+
+  /* ---------- Compare table ---------- */
+  .table-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; }
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  thead th {
+    text-align: left; font-size: 13px; color: var(--ink-faint); font-weight: 600;
+    padding: 14px 18px; background: #fafbfe; border-bottom: 1px solid var(--line); white-space: nowrap;
+  }
+  tbody td { padding: 14px 18px; border-bottom: 1px solid var(--line); font-size: 14px; vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #fafbfe; }
+  .t-name { font-weight: 700; white-space: nowrap; }
+  .t-sub { font-size: 12px; color: var(--ink-faint); }
+  .pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+  .pill.rec { background: #e6f7eb; color: var(--ok); }
+  .pill.ok { background: #eef1ff; color: var(--brand); }
+  .pill.mid { background: #fff9e6; color: #b98a00; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list { max-width: 780px; margin: 0 auto; }
+  .faq-item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .faq-q { padding: 18px 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 15px; user-select: none; }
+  .faq-q .chev { transition: transform .2s ease; color: var(--ink-faint); }
+  .faq-item.open .chev { transform: rotate(180deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .faq-a p { padding: 0 22px 20px; color: var(--ink-soft); font-size: 14px; }
+
+  /* ---------- Footer ---------- */
+  footer { margin-top: 72px; background: #14161f; color: #aab0c4; padding: 52px 0 36px; }
+  .foot-grid { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .foot-brand { max-width: 340px; }
+  .foot-brand .logo { color: #fff; margin-bottom: 14px; }
+  .foot-brand p { font-size: 13.5px; }
+  .foot-col h4 { color: #fff; font-size: 14px; margin-bottom: 14px; }
+  .foot-col a { display: block; font-size: 13.5px; padding: 4px 0; color: #aab0c4; }
+  .foot-col a:hover { color: #fff; }
+  .foot-bottom { border-top: 1px solid #2a2d3a; margin-top: 36px; padding-top: 22px; font-size: 12.5px; color: #6c7188; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 36px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+    h1 { font-size: 30px; }
+    .hero-actions .btn { flex: 1; justify-content: center; }
+  }
+  .hidden { display: none !important; }
+  .fade-in { animation: fade .4s ease both; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="wrap nav-inner">
+    <div class="logo"><span class="mark">✍️</span>学术工具箱</div>
+    <div class="nav-links">
+      <a href="#tools">工具导航</a>
+      <a href="#compare">工具对比</a>
+      <a href="#flow">写作流程</a>
+      <a href="#faq">常见问题</a>
+      <a href="#tools" class="nav-cta">开始探索</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>持续更新 · 精选 30+ 学术工具</span>
+    <h1>论文写作，<br>从这里<span class="grad">高效启程</span></h1>
+    <p class="hero-sub">从文献检索、写作润色到排版查重，为你整理学术论文写作全流程的实用工具，按需取用，少走弯路。</p>
+    <div class="hero-actions">
+      <a href="#tools" class="btn btn-primary">浏览全部工具 →</a>
+      <a href="#flow" class="btn btn-ghost">📋 查看写作流程</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num"><em>30</em>+</div><div class="lbl">精选工具</div></div>
+      <div class="stat"><div class="num"><em>7</em></div><div class="lbl">使用场景</div></div>
+      <div class="stat"><div class="num"><em>100</em>%</div><div class="lbl">人工筛选评测</div></div>
+      <div class="stat"><div class="num"><em>0</em> 元</div><div class="lbl">多数工具免费可用</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TOOLS ============ -->
+<section id="tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>📚 论文写作工具导航</h2>
+      <p>按写作场景分类，搜索或点击分类标签快速定位你需要的工具。</p>
+    </div>
+
+    <div class="controls">
+      <div class="search-box">
+        <span class="icon">🔍</span>
+        <input type="text" id="search" placeholder="搜索工具名称或关键词，如：文献管理、查重、LaTeX…">
+        <span class="clear" id="clearBtn">✕</span>
+      </div>
+      <div class="tabs" id="tabs"></div>
+      <div class="result-count" id="resultCount"></div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ============ COMPARE ============ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>⚖️ 热门工具横向对比</h2>
+      <p>针对「文献管理」「查重」「AI 写作」三大高频需求，快速帮你做出选择。</p>
+    </div>
+    <div class="table-card">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>工具</th>
+              <th>类型</th>
+              <th>免费程度</th>
+              <th>上手难度</th>
+              <th>适合人群</th>
+              <th>推荐指数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="t-name">Zotero</div><div class="t-sub">文献管理 · 开源</div></td>
+              <td>文献管理</td>
+              <td><span class="pill rec">完全免费</span></td>
+              <td><span class="pill ok">低</span></td>
+              <td>所有科研人员</td>
+              <td>★★★★★</td>
+            </tr>
+            <tr>
+              <td><div class="t-name">EndNote</div><div class="t-sub">文献管理 · 商业</div></td>
+              <td>文献管理</td>
+              <td><span class="pill mid">付费/机构</span></td>
+              <td><span class="pill mid">中</span></td>
+              <td>机构用户、期刊投稿</td>
+              <td>★★★★☆</td>
+            </tr>
+            <tr>
+              <td><div class="t-name">Overleaf</div><div class="t-sub">LaTeX 在线编辑</div></td>
+              <td>排版写作</td>
+              <td><span class="pill ok">基础免费</span></td>
+              <td><span class="pill mid">中</span></td>
+              <td>理工科、数学公式多者</td>
+              <td>★★★★★</td>
+            </tr>
+            <tr>
+              <td><div class="t-name">iThenticate</div><div class="t-sub">查重 · 期刊官方</div></td>
+              <td>查重</td>
+              <td><span class="pill mid">付费</span></td>
+              <td><span class="pill ok">低</span></td>
+              <td>投稿前自查</td>
+              <td>★★★★☆</td>
+            </tr>
+            <tr>
+              <td><div class="t-name">Claude</div><div class="t-sub">AI 写作助手</div></td>
+              <td>AI 辅助</td>
+              <td><span class="pill ok">有免费额度</span></td>
+              <td><span class="pill ok">低</span></td>
+              <td>润色、翻译、综述草拟</td>
+              <td>★★★★★</td>
+            </tr>
+            <tr>
+              <td><div class="t-name">Grammarly</div><div class="t-sub">语法检查 · 润色</div></td>
+              <td>写作润色</td>
+              <td><span class="pill ok">基础免费</span></td>
+              <td><span class="pill ok">低</span></td>
+              <td>英文论文语法修改</td>
+              <td>★★★★☆</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section id="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>🧭 论文写作全流程工具推荐</h2>
+      <p>按写作阶段排列，每个环节推荐最趁手的一两件工具。</p>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+      <div class="card">
+        <div class="card-top"><div class="card-ico">📖</div><div><div class="card-title">选题与检索</div><div class="card-en">阶段 01</div></div></div>
+        <p class="card-desc">Google Scholar、Web of Science、Sci-Hub 找文献，Elicit / Consensus 快速读综述。</p>
+        <div class="tags"><span class="tag">文献检索</span><span class="tag">综述</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-ico">🗂️</div><div><div class="card-title">文献管理</div><div class="card-en">阶段 02</div></div></div>
+        <p class="card-desc">Zotero（推荐）或 EndNote 统一管理题录与 PDF，自动生成参考文献。</p>
+        <div class="tags"><span class="tag">题录管理</span><span class="tag">引用</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-ico">✍️</div><div><div class="card-title">写作与润色</div><div class="card-en">阶段 03</div></div></div>
+        <p class="card-desc">Overleaf 排版 + Claude / Grammarly 润色 + DeepL 翻译，中英文写作都覆盖。</p>
+        <div class="tags"><span class="tag">排版</span><span class="tag">润色</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-ico">✅</div><div><div class="card-title">查重与投稿</div><div class="card-en">阶段 04</div></div></div>
+        <p class="card-desc">iThenticate / Turnitin 查重，配合期刊格式模板，安心投出你的成果。</p>
+        <div class="tags"><span class="tag">查重</span><span class="tag">投稿</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>💬 常见问题</h2>
+      <p>关于论文写作工具，你最关心的问题都在这里。</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q">文献管理工具，新手该选哪一个？<span class="chev">▾</span></div>
+        <div class="faq-a"><p>首选 <b>Zotero</b>：免费、开源、浏览器插件一键抓取、中文界面友好，且支持 Word / Google Docs / Overleaf 引用。如果你所在机构已购买 <b>EndNote</b>，且常向英文期刊投稿，EndNote 的期刊模板会更完善。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">LaTeX 和 Word，写论文用哪个更好？<span class="chev">▾</span></div>
+        <div class="faq-a"><p>看学科与习惯。数学、物理、计算机等公式多的理工科强烈推荐 <b>LaTeX（Overleaf）</b>，排版专业、模板规范；人文社科、管理类论文用 <b>Word</b> 配合 Zotero 更灵活高效，评审返修也方便。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">AI 工具（如 Claude、ChatGPT）能用来写论文吗？<span class="chev">▾</span></div>
+        <div class="faq-a"><p>可以用于<b>辅助</b>：查资料、总结文献、润色语言、翻译、检查逻辑等。但需注意：<b>不得直接生成正文当作原创内容</b>，投稿前务必核对数据与引用的真实性，并遵守期刊关于 AI 使用的披露要求，避免学术不端风险。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">投稿前查重，用哪个最接近期刊结果？<span class="chev">▾</span></div>
+        <div class="faq-a"><p>国际期刊普遍使用 <b>iThenticate / Turnitin</b> 家族，投稿前自查用 <b>iThenticate</b> 最接近最终结果；中文期刊则以<b>知网（CNKI）查重</b>为准。注意通过官方或正规授权渠道购买，避免论文被泄露。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">免费工具够用吗，还是必须买付费版？<span class="chev">▾</span></div>
+        <div class="faq-a"><p>多数场景免费已够用：<b>Zotero + Overleaf 免费版 + Claude/Grammarly 免费额度 + DeepL 免费翻译</b>，几乎能覆盖完整写作流程。仅当需要高级查重、批量文献处理或高级润色时，再考虑付费。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><span class="mark">✍️</span>学术工具箱</div>
+        <p>一站式论文写作工具导航，帮你从选题到投稿的每一步都找到趁手的工具。所有工具介绍基于公开信息整理，仅供学习参考。</p>
+      </div>
+      <div class="foot-col">
+        <h4>工具分类</h4>
+        <a href="#tools">文献管理</a>
+        <a href="#tools">写作润色</a>
+        <a href="#tools">AI 辅助</a>
+        <a href="#tools">查重降重</a>
+      </div>
+      <div class="foot-col">
+        <h4>相关链接</h4>
+        <a href="#flow">写作流程</a>
+        <a href="#compare">工具对比</a>
+        <a href="#faq">常见问题</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 学术工具箱 · 本页面为静态演示站点</span>
+      <span>用 ❤️ 与 🧠 搭建</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ============ 工具数据 ============
+  const CATEGORIES = {
+    literature: { name: "文献管理与检索", icon: "📚" },
+    writing:    { name: "写作与润色",     icon: "✍️" },
+    ai:         { name: "AI 智能辅助",    icon: "🤖" },
+    plagiarism: { name: "查重与降重",     icon: "🔍" },
+    layout:     { name: "排版与绘图",     icon: "🎨" },
+    data:       { name: "数据分析",       icon: "📊" },
+    collab:     { name: "协作与笔记",     icon: "🤝" },
+  };
+
+  const TOOLS = [
+    // 文献管理与检索
+    { name: "Zotero", en: "Reference Manager", cat: "literature", icon: "🗂️", price: "free", priceText: "完全免费",
+      desc: "开源文献管理工具，浏览器插件一键抓取文献，自动生成参考文献，支持 Word / Overleaf 引用。",
+      tags: ["开源", "浏览器插件", "中文友好"], rating: 4.9, link: "https://www.zotero.org" },
+    { name: "EndNote", en: "Reference Manager", cat: "literature", icon: "📑", price: "paid", priceText: "付费/机构",
+      desc: "老牌商业文献管理软件，期刊投稿模板丰富，适合英文期刊投稿与团队共享文献库。",
+      tags: ["期刊模板", "团队共享"], rating: 4.5, link: "https://endnote.com" },
+    { name: "Google Scholar", en: "文献搜索引擎", cat: "literature", icon: "🔎", price: "free", priceText: "完全免费",
+      desc: "覆盖面最广的学术搜索引擎，可追踪引用、查看被引次数，是找文献的第一站。",
+      tags: ["学术搜索", "引用追踪"], rating: 4.7, link: "https://scholar.google.com" },
+    { name: "知网 (CNKI)", en: "中国知网", cat: "literature", icon: "📕", price: "paid", priceText: "机构订阅",
+      desc: "中文学术资源核心平台，期刊论文、硕博论文、会议论文一站式检索下载。",
+      tags: ["中文文献", "硕博论文"], rating: 4.4, link: "https://www.cnki.net" },
+    { name: "Web of Science", en: "引文索引", cat: "literature", icon: "🌐", price: "paid", priceText: "机构订阅",
+      desc: "权威引文索引数据库，用于文献回溯、影响因子查询与高质量文献筛选。",
+      tags: ["引文索引", "影响因子"], rating: 4.6, link: "https://www.webofscience.com" },
+
+    // 写作与润色
+    { name: "Overleaf", en: "LaTeX 在线编辑器", cat: "writing", icon: "📐", price: "part", priceText: "基础免费",
+      desc: "在线 LaTeX 编辑器，无需安装，海量期刊/学位论文模板，支持多人实时协作。",
+      tags: ["LaTeX", "模板丰富", "实时协作"], rating: 4.8, link: "https://www.overleaf.com" },
+    { name: "Grammarly", en: "语法检查与润色", cat: "writing", icon: "✅", price: "part", priceText: "基础免费",
+      desc: "实时英文语法、拼写、语气检查，并提供改写建议，是英文论文润色的常用助手。",
+      tags: ["语法检查", "英文润色"], rating: 4.6, link: "https://www.grammarly.com" },
+    { name: "DeepL", en: "机器翻译", cat: "writing", icon: "🌍", price: "part", priceText: "基础免费",
+      desc: "公认质量最高的机器翻译之一，中英互译自然流畅，适合翻译论文摘要与参考文献。",
+      tags: ["机器翻译", "中英互译"], rating: 4.7, link: "https://www.deepl.com" },
+    { name: "QuillBot", en: "改写与润色", cat: "writing", icon: "🔄", price: "part", priceText: "基础免费",
+      desc: "一键改写（Paraphrase）、摘要、语法检查，帮助用不同表达降低重复率、提升表达。",
+      tags: ["改写", "降重辅助"], rating: 4.4, link: "https://quillbot.com" },
+    { name: "Hemingway Editor", en: "可读性检查", cat: "writing", icon: "📝", price: "free", priceText: "完全免费",
+      desc: "分析句子复杂度与被动语态，让学术写作更简洁清晰，网页版免费使用。",
+      tags: ["可读性", "简洁写作"], rating: 4.2, link: "https://hemingwayapp.com" },
+
+    // AI 智能辅助
+    { name: "Claude", en: "AI 写作助手", cat: "ai", icon: "🤖", price: "part", priceText: "有免费额度",
+      desc: "Anthropic 出品，长上下文处理能力强，擅长润色、翻译、文献总结与综述草拟。",
+      tags: ["长文本", "润色翻译", "文献总结"], rating: 4.9, link: "https://claude.ai" },
+    { name: "ChatGPT", en: "AI 对话助手", cat: "ai", icon: "💬", price: "part", priceText: "有免费额度",
+      desc: "OpenAI 通用大模型，可用于头脑风暴、大纲生成、代码与数据处理辅助。",
+      tags: ["通用对话", "头脑风暴"], rating: 4.7, link: "https://chat.openai.com" },
+    { name: "Elicit", en: "AI 文献分析", cat: "ai", icon: "🧠", price: "part", priceText: "基础免费",
+      desc: "面向科研的 AI 检索，用自然语言提问即可提取多篇论文的关键信息，快速做文献综述。",
+      tags: ["AI 检索", "文献综述"], rating: 4.5, link: "https://elicit.com" },
+    { name: "Consensus", en: "AI 学术问答", cat: "ai", icon: "🎯", price: "part", priceText: "基础免费",
+      desc: "基于真实论文数据库回答科研问题，附引用来源，帮助快速了解某领域共识。",
+      tags: ["证据检索", "带引用"], rating: 4.4, link: "https://consensus.app" },
+    { name: "文心一言", en: "百度 AI 助手", cat: "ai", icon: "🐻", price: "free", priceText: "完全免费",
+      desc: "国内中文大模型，中文语境理解好，适合中文论文润色、摘要与文案辅助。",
+      tags: ["中文友好", "免费"], rating: 4.1, link: "https://yiyan.baidu.com" },
+
+    // 查重与降重
+    { name: "iThenticate", en: "期刊官方查重", cat: "plagiarism", icon: "🛡️", price: "paid", priceText: "付费",
+      desc: "国际期刊投稿普遍采用的查重系统，投稿前自查最接近期刊最终结果。",
+      tags: ["国际期刊", "投稿前自查"], rating: 4.7, link: "https://www.ithenticate.com" },
+    { name: "Turnitin", en: "高校查重系统", cat: "plagiarism", icon: "🎓", price: "paid", priceText: "机构订阅",
+      desc: "高校常用的论文查重与反剽窃系统，多数学校免费开放给学生自查。",
+      tags: ["高校常用", "反剽窃"], rating: 4.5, link: "https://www.turnitin.com" },
+    { name: "知网查重", en: "CNKI 学术不端检测", cat: "plagiarism", icon: "📋", price: "paid", priceText: "付费",
+      desc: "中文学位论文与期刊投稿的权威查重标准，检测报告被国内高校广泛认可。",
+      tags: ["中文权威", "学位论文"], rating: 4.3, link: "https://check.cnki.net" },
+    { name: "PaperPass", en: "中文论文查重", cat: "plagiarism", icon: "📄", price: "part", priceText: "部分免费",
+      desc: "面向个人的中文论文查重服务，价格亲民，适合初稿自查与降重参考。",
+      tags: ["个人自查", "性价比高"], rating: 4.0, link: "https://www.paperpass.com" },
+
+    // 排版与绘图
+    { name: "Origin", en: "科研绘图软件", cat: "layout", icon: "📈", price: "paid", priceText: "付费",
+      desc: "科研绘图与数据分析的标准工具，可制作高质量论文配图、误差棒与拟合曲线。",
+      tags: ["科研绘图", "数据拟合"], rating: 4.6, link: "https://www.originlab.com" },
+    { name: "matplotlib", en: "Python 绘图库", cat: "layout", icon: "🐍", price: "free", priceText: "完全免费",
+      desc: "Python 最流行的绘图库，代码控制、可复现，适合生成论文级矢量图与多子图。",
+      tags: ["Python", "可复现", "矢量图"], rating: 4.7, link: "https://matplotlib.org" },
+    { name: "draw.io", en: "流程图绘制", cat: "layout", icon: "🖌️", price: "free", priceText: "完全免费",
+      desc: "免费在线流程图与示意图工具，用于绘制实验流程、技术路线与框架图。",
+      tags: ["流程图", "技术路线"], rating: 4.5, link: "https://app.diagrams.net" },
+    { name: "GraphPad Prism", en: "统计绘图软件", cat: "layout", icon: "📊", price: "paid", priceText: "付费",
+      desc: "生物医学领域常用的统计分析与绘图软件，图表美观，符合期刊发表要求。",
+      tags: ["生物医学", "统计绘图"], rating: 4.5, link: "https://www.graphpad.com" },
+
+    // 数据分析
+    { name: "SPSS", en: "统计分析软件", cat: "data", icon: "📉", price: "paid", priceText: "付费",
+      desc: "社科领域广泛使用的统计软件，界面友好，适合问卷与实验数据的统计分析。",
+      tags: ["社会科学", "问卷分析"], rating: 4.3, link: "https://www.ibm.com/spss" },
+    { name: "R / RStudio", en: "统计编程语言", cat: "data", icon: "📐", price: "free", priceText: "完全免费",
+      desc: "免费开源统计语言，ggplot2 绘图与统计建模强大，可复现性强，是科研数据分析主力。",
+      tags: ["开源", "统计建模", "可复现"], rating: 4.7, link: "https://www.r-project.org" },
+    { name: "Python (Pandas)", en: "数据处理", cat: "data", icon: "🐼", price: "free", priceText: "完全免费",
+      desc: "Pandas + NumPy + SciPy 生态，处理大规模数据、机器学习与自动化分析的首选。",
+      tags: ["数据处理", "机器学习"], rating: 4.8, link: "https://pandas.pydata.org" },
+    { name: "Stata", en: "计量统计软件", cat: "data", icon: "🧮", price: "paid", priceText: "付费",
+      desc: "经济学与计量研究常用软件，面板数据与因果推断分析功能强大。",
+      tags: ["经济学", "计量分析"], rating: 4.4, link: "https://www.stata.com" },
+
+    // 协作与笔记
+    { name: "Notion", en: "笔记与协作", cat: "collab", icon: "📝", price: "part", priceText: "基础免费",
+      desc: "一体化笔记与知识库，用于文献笔记、写作计划与课题组项目管理。",
+      tags: ["知识库", "项目管理"], rating: 4.6, link: "https://www.notion.so" },
+    { name: "飞书 / 钉钉文档", en: "团队协作", cat: "collab", icon: "🤝", price: "part", priceText: "基础免费",
+      desc: "国内常用在线协作文档，多人实时编辑论文、共享资料与在线评审。",
+      tags: ["在线协作", "实时编辑"], rating: 4.4, link: "https://www.feishu.cn" },
+    { name: "Sci-Hub", en: "文献获取", cat: "literature", icon: "🔓", price: "free", priceText: "免费",
+      desc: "通过 DOI 免费获取付费论文全文（注意版权与合规风险，仅作个人学习参考）。",
+      tags: ["全文获取", "DOI"], rating: 4.2, link: "https://sci-hub.se" },
+    { name: "Mendeley", en: "文献管理", cat: "literature", icon: "🔖", price: "part", priceText: "基础免费",
+      desc: "Elsevier 旗下文献管理工具，自带 PDF 标注与学术社交网络，免费额度充足。",
+      tags: ["PDF 标注", "学术社交"], rating: 4.2, link: "https://www.mendeley.com" },
+  ];
+
+  // ============ 渲染 ============
+  const grid = document.getElementById('grid');
+  const tabsEl = document.getElementById('tabs');
+  const resultCount = document.getElementById('resultCount');
+  const searchInput = document.getElementById('search');
+  const clearBtn = document.getElementById('clearBtn');
+
+  let activeCat = 'all';
+  let query = '';
+
+  const priceBadge = t => t.price === 'free'
+    ? `<span class="badge free">${t.priceText}</span>`
+    : t.price === 'part'
+    ? `<span class="badge part">${t.priceText}</span>`
+    : `<span class="badge paid">${t.priceText}</span>`;
+
+  function renderTabs() {
+    const all = `<button class="tab ${activeCat === 'all' ? 'active' : ''}" data-cat="all">全部</button>`;
+    const rest = Object.entries(CATEGORIES).map(([k, v]) =>
+      `<button class="tab ${activeCat === k ? 'active' : ''}" data-cat="${k}">${v.icon} ${v.name}</button>`
+    ).join('');
+    tabsEl.innerHTML = all + rest;
+  }
+
+  function renderTools() {
+    const q = query.trim().toLowerCase();
+    const filtered = TOOLS.filter(t => {
+      const matchCat = activeCat === 'all' || t.cat === activeCat;
+      const hay = (t.name + t.en + t.desc + t.tags.join(' ') + CATEGORIES[t.cat].name).toLowerCase();
+      const matchQ = !q || hay.includes(q);
+      return matchCat && matchQ;
+    });
+
+    resultCount.textContent = filtered.length
+      ? `共 ${filtered.length} 个工具符合条件`
+      : '未找到匹配的工具，试试其他关键词吧～';
+
+    grid.innerHTML = filtered.map(t => `
+      <div class="card fade-in">
+        <div class="card-top">
+          <div class="card-ico">${t.icon}</div>
+          <div>
+            <div class="card-title">${t.name}</div>
+            <div class="card-en">${t.en}</div>
+          </div>
+          <div class="badges">${priceBadge(t)}</div>
+        </div>
+        <p class="card-desc">${t.desc}</p>
+        <div class="tags">${t.tags.map(x => `<span class="tag">${x}</span>`).join('')}</div>
+        <div class="card-foot">
+          <div class="stars">★ ${t.rating}<span>· ${CATEGORIES[t.cat].name}</span></div>
+          <a class="card-link" href="${t.link}" target="_blank" rel="noopener">访问官网 ↗</a>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  tabsEl.addEventListener('click', e => {
+    const btn = e.target.closest('.tab');
+    if (!btn) return;
+    activeCat = btn.dataset.cat;
+    renderTabs();
+    renderTools();
+  });
+
+  searchInput.addEventListener('input', () => {
+    query = searchInput.value;
+    clearBtn.style.display = query ? 'inline-block' : 'none';
+    renderTools();
+  });
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    query = '';
+    clearBtn.style.display = 'none';
+    renderTools();
+    searchInput.focus();
+  });
+
+  // FAQ 折叠
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const a = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+      // 收起其它
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = '0';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // 初始化
+  renderTabs();
+  renderTools();
+</script>
+</body>
+</html>
